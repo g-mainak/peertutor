@@ -1,0 +1,20 @@
+Hey!
+= form_for @user do |u|
+  .name
+    Please enter your first name
+    = u.text_field :name
+  .topic
+    Please enter the topic you are seeking help for:
+    = u.text_field :topic
+    .popular-topics
+    - if @topics
+      Popular topics:
+      = @topics.join(", ") 
+  .position
+    Please indicate where you're sitting by clicking on the picture:
+    = image_tag 'class.png', size: '825x600', class: 'picture'
+    = u.text_field :posx, style: "display:none"
+    = u.text_field :posy, style: "display:none"
+    #position
+  .submit
+    = u.submit
