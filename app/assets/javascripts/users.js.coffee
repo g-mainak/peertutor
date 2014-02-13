@@ -5,5 +5,5 @@
 $(document).ready ->
   $(".picture").click (e) ->
     offset = $(this).offset()
-    $("#user_posx").val(e.clientX - offset.left)
-    $("#user_posy").val(e.clientY - offset.top)
+    $("#user_posx").val(e.pageX - offset.left)
+    $("#user_posy").val(e.pageY - offset.top)

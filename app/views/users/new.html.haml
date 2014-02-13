@@ -1,20 +1,24 @@
-Hey!
-= form_for @user do |u|
-  .name
-    Please enter your first name
-    = u.text_field :name
-  .topic
-    Please enter the topic you are seeking help for:
-    = u.text_field :topic
-    .popular-topics
-    - if @topics
-      Popular topics:
-      = @topics.join(", ") 
-  .position
-    Please indicate where you're sitting by clicking on the picture:
-    = image_tag 'class.png', size: '825x600', class: 'picture'
-    = u.text_field :posx, style: "display:none"
-    = u.text_field :posy, style: "display:none"
-    #position
-  .submit
-    = u.submit
+%h1 Sign up for help
+.col-md-10
+  .form-inline
+    = form_for @user do |u|
+      .form-group.col-md-8
+        Hi!
+        %br
+        Please enter your first name
+        = u.text_field :name, class: 'form-control'
+      .form-group.col-md-8
+        Please enter the topic you are seeking help for:
+        = u.text_field :topic, class: 'form-control'
+        .popular-topics
+        - if @topics
+          Popular topics:
+          %b
+            = @topics.join(", ")
+      .form-group.col-md-8
+        Please indicate where you're sitting by clicking on the picture:
+        = u.text_field :posx, style: "display:none"
+        = u.text_field :posy, style: "display:none"
+      = image_tag 'class.png', size: '800x624', class: 'picture'
+      %br
+      = u.submit class: 'btn btn-success pull-right'
